@@ -69,4 +69,9 @@ describe('RegistreComponent', () => {
   it('should have a title Inscripció inside the second section', () => {
     expect(getNthSectionContent(1).querySelector('h1')?.textContent).toBe('Inscripció');
   })
+  
+  it('should have 5 checkboxes', () => {
+    const checkboxes = compiled.querySelectorAll('input[type="checkbox"]');
+    expect(checkboxes.length).toBe(5);
+  });
 });
