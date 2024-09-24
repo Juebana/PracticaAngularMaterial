@@ -74,4 +74,5 @@ describe('RegistreComponent', () => {
     const checkboxes = compiled.querySelectorAll('input[type="checkbox"]');
     expect(checkboxes.length).toBe(5);
   });
+  
 });
