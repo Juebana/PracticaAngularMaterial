@@ -25,13 +25,14 @@ describe('RegistreComponent', () => {
     fixture = TestBed.createComponent(RegistreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiled=fixture.nativeElement as HTMLElement;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have the title Inscripció proves atletismes', () => {
-    expect(compiled.querySelector('h1')?.textContent).toBe('Inscripció proves atletismes');
+  it('should have the title Inscripció proves atletisme', () => {
+    expect(compiled.querySelector('h1')?.textContent).toBe('Inscripció proves atletisme');
   });
 });
