@@ -39,4 +39,12 @@ describe('RegistreComponent', () => {
   it('should have a subtitle Dades identificatives', () => {
     expect(compiled.querySelector('h2')?.textContent).toBe('Dades identificatives');
   });
+
+  it('should have the labels DNI:, Codi de federat:, Nom i cognoms:, Telèfon:, Email:', () => {
+    expect(getNthLabelContent(0)?.textContent).toBe('DNI: ');
+    expect(getNthLabelContent(1)?.textContent).toBe('Codi de federat: ');
+    expect(getNthLabelContent(2)?.textContent).toBe('Nom i cognoms: ');
+    expect(getNthLabelContent(3)?.textContent).toBe('Telèfon: ');
+    expect(getNthLabelContent(4)?.textContent).toBe('Email: ');
+  })
 });
