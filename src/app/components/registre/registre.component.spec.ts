@@ -65,4 +65,8 @@ describe('RegistreComponent', () => {
     expect(inputTelefon!.getAttribute('type')).toBe('text');
     expect(inputEmail!.getAttribute('type')).toBe('email');
   });
+
+  it('should have a title Inscripció inside the second section', () => {
+    expect(getNthSectionContent(1).querySelector('h1')?.textContent).toBe('Inscripció');
+  })
 });
