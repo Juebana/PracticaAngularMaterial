@@ -88,4 +88,12 @@ describe('RegistreComponent', () => {
     expect(submitButton).toBeTruthy();
     expect(submitButton!.textContent).toBe('Inscripció');
   })
+
+  it('should autocomplete the last letter of the DNI field when entered 8 numbers', () => {
+    const inputDNI = getInputFromLabel(0)!;
+    inputDNI.value = '12345678';
+    inputDNI.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    expect(inputDNI.value).toBe('12345678Z');
+  })
 });
