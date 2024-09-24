@@ -74,5 +74,12 @@ describe('RegistreComponent', () => {
     const checkboxes = compiled.querySelectorAll('input[type="checkbox"]');
     expect(checkboxes.length).toBe(5);
   });
-  
+
+  it('should have labels for the 5 checkboxes', () => {
+    expect(getNthLabelContent(5)?.textContent).toBe('100m llisos: ');
+    expect(getNthLabelContent(6)?.textContent).toBe('200m llisos: ');
+    expect(getNthLabelContent(7)?.textContent).toBe('400m llisos: ');
+    expect(getNthLabelContent(8)?.textContent).toBe('800m llisos: ');
+    expect(getNthLabelContent(9)?.textContent).toBe('1000m llisos: ');
+  })
 });
