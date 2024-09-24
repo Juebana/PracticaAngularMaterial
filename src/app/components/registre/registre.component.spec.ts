@@ -82,4 +82,10 @@ describe('RegistreComponent', () => {
     expect(getNthLabelContent(8)?.textContent).toBe('800m llisos ');
     expect(getNthLabelContent(9)?.textContent).toBe('1000m llisos ');
   })
+
+  it('should have a submit button', () => {
+    const submitButton = compiled.querySelector('button[type="submit"]');
+    expect(submitButton).toBeTruthy();
+    expect(submitButton!.textContent).toBe('Inscripció');
+  })
 });
