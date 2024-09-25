@@ -2,7 +2,7 @@
 <section>
     <h1>Dades identificatives</h1>
     <label>DNI:
-        <input type="text"/>
+        <input type="text" [(ngModel)]="dni" (input)="onDNIInput()" />
     </label>
     <label>Codi de federat:
         <input type="text"/>
