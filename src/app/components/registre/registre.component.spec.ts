@@ -66,6 +66,30 @@ describe('RegistreComponent', () => {
     expect(inputEmail!.getAttribute('type')).toBe('email');
   });
 
+  it('should autocomplete the last letter of the DNI field when entered 8 numbers', () => {
+    const inputDNI = getInputFromLabel(0)!;
+    inputDNI.value = '12345678';
+    inputDNI.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    expect(inputDNI.value).toBe('12345678Z');
+  })
+
+});
+
+describe('inscripcio component', () => {
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [RegistreComponent]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(RegistreComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    compiled=fixture.nativeElement as HTMLElement;
+  });
+
   it('should have a title Inscripció inside the second section', () => {
     expect(getNthSectionContent(1).querySelector('h1')?.textContent).toBe('Inscripció');
   })
@@ -83,17 +107,10 @@ describe('RegistreComponent', () => {
     expect(getNthLabelContent(9)?.textContent).toBe('1000m llisos ');
   })
 
-  it('should autocomplete the last letter of the DNI field when entered 8 numbers', () => {
-    const inputDNI = getInputFromLabel(0)!;
-    inputDNI.value = '12345678';
-    inputDNI.dispatchEvent(new Event('input'));
-    fixture.detectChanges();
-    expect(inputDNI.value).toBe('12345678Z');
-  })
-
-});
+})
 
 describe('button component', () => {
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RegistreComponent]
@@ -116,4 +133,5 @@ describe('button component', () => {
     const submitButton:HTMLButtonElement|null = compiled.querySelector('button');
     expect(submitButton?.disabled).toBeTruthy();
   })
+
 });
