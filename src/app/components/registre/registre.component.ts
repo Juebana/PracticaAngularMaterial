@@ -25,4 +25,33 @@ export class RegistreComponent {
     const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
     return letras[dni % 23];
   }
+
+  maxDistance = 1200;
+  selectedDistances: number[] = [];
+  races = [
+    { name: '100m llisos', distance: 100 },
+    { name: '200m llisos', distance: 200 },
+    { name: '400m llisos', distance: 400 },
+    { name: '800m llisos', distance: 800 },
+    { name: '1000m llisos', distance: 1000 }
+  ];
+
+  onCheckboxChange(event: any, raceDistance: number): void {
+    if (event.target.checked) {
+      this.selectedDistances.push(raceDistance);
+    } else {
+      const index = this.selectedDistances.indexOf(raceDistance);
+      if (index > -1) {
+        this.selectedDistances.splice(index, 1);
+      }
+    }
+  }
+
+  get totalDistance(): number {
+    return this.selectedDistances.reduce((a, b) => a + b, 0);
+  }
+
+  isDisabled(raceDistance: number): boolean {
+    return this.totalDistance + raceDistance > this.maxDistance;
+  }
 }

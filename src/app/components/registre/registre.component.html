@@ -11,7 +11,7 @@
         <input type="text"/>
     </label>
     <label>Telèfon:
-        <input type="text"/>
+        <input type="tel"/>
     </label>
     <label>Email:
         <input type="email"/>
@@ -20,19 +20,19 @@
 <section>
     <h1>Inscripció</h1>
     <label>100m llisos
-        <input type="checkbox">
+        <input type="checkbox" [disabled]="isDisabled(100)" (change)="onCheckboxChange($event, 100)">
     </label>
     <label>200m llisos
-        <input type="checkbox">
+        <input type="checkbox" [disabled]="isDisabled(200)" (change)="onCheckboxChange($event, 200)">
     </label>
     <label>400m llisos
-        <input type="checkbox">
+        <input type="checkbox" [disabled]="isDisabled(400)" (change)="onCheckboxChange($event, 400)">
     </label>
     <label>800m llisos
-        <input type="checkbox">
+        <input type="checkbox" [disabled]="isDisabled(800)" (change)="onCheckboxChange($event, 800)">
     </label>
     <label>1000m llisos
-        <input type="checkbox">
+        <input type="checkbox" [disabled]="isDisabled(1000)" (change)="onCheckboxChange($event, 1000)">
     </label>
 </section>
 <button type="submit" [disabled]="true">Inscripció</button>

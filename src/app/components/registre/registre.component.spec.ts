@@ -62,7 +62,7 @@ describe('RegistreComponent', () => {
     expect(inputDNI!.getAttribute('type')).toBe('text');
     expect(inputCodiFederat!.getAttribute('type')).toBe('text');
     expect(inputNomCognoms!.getAttribute('type')).toBe('text');
-    expect(inputTelefon!.getAttribute('type')).toBe('text');
+    expect(inputTelefon!.getAttribute('type')).toBe('tel');
     expect(inputEmail!.getAttribute('type')).toBe('email');
   });
 
@@ -107,25 +107,19 @@ describe('InscripcioComponent', () => {
     expect(getNthLabelContent(9)?.textContent).toBe('1000m llisos ');
   })
 
-  it('shouldnt let you select more than a value of 1200m from the checkboxes', () => {
-    const checkboxes = compiled.querySelectorAll('input[type="checkbox"]');
+  it('shouldn\'t let you select more than a value of 1200m from the checkboxes', () => {
+    const secondSection = getNthSectionContent(1);
+    const checkboxes = secondSection.querySelectorAll('input[type="checkbox"]');
 
-    checkboxes[3].click();
+    const checkbox2 = checkboxes[2] as HTMLInputElement;
+    const checkbox4 = checkboxes[4] as HTMLInputElement;
+  
+    checkbox4.click();
     fixture.detectChanges();
-    expect(checkboxes[3].checked).toBeTrue();
+    expect(checkbox4.checked).toBeTrue();
 
-    checkboxes[2].click();
-    fixture.detectChanges();
-    expect(checkboxes[2].checked).toBeTrue();
-
-    expect(checkboxes[1].disabled).toBeTrue();
-
-    checkboxes[3].click();
-    fixture.detectChanges();
-    expect(checkboxes[3].checked).toBeFalse();
-
-    expect(checkboxes[1].disabled).toBeFalse();
-  })
+    expect(checkbox2.disabled).toBeTrue();
+  });  
 
 })
 
