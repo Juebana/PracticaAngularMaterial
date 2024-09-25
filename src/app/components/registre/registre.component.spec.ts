@@ -76,7 +76,7 @@ describe('RegistreComponent', () => {
 
 });
 
-describe('inscripcio component', () => {
+describe('InscripcioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -107,10 +107,30 @@ describe('inscripcio component', () => {
     expect(getNthLabelContent(9)?.textContent).toBe('1000m llisos ');
   })
 
+  it('shouldnt let you select more than a value of 1200m from the checkboxes', () => {
+    const checkboxes = compiled.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes[3].click();
+    fixture.detectChanges();
+    expect(checkboxes[3].checked).toBeTrue();
+
+    checkboxes[2].click();
+    fixture.detectChanges();
+    expect(checkboxes[2].checked).toBeTrue();
+
+    expect(checkboxes[1].disabled).toBeTrue();
+
+    checkboxes[3].click();
+    fixture.detectChanges();
+    expect(checkboxes[3].checked).toBeFalse();
+
+    expect(checkboxes[1].disabled).toBeFalse();
+  })
+
 })
 
-describe('button component', () => {
-  
+describe('ButtonComponent', () => {
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RegistreComponent]
