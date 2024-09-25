@@ -111,4 +111,9 @@ describe('button component', () => {
     expect(submitButton).toBeTruthy();
     expect(submitButton!.textContent).toBe('Inscripció');
   })
+
+  it('Button disabled by default', () => {
+    const submitButton:HTMLButtonElement|null = compiled.querySelector('button');
+    expect(submitButton?.disabled).toBeTruthy();
+  })
 });
