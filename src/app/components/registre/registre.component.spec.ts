@@ -83,17 +83,32 @@ describe('RegistreComponent', () => {
     expect(getNthLabelContent(9)?.textContent).toBe('1000m llisos ');
   })
 
-  it('should have a submit button', () => {
-    const submitButton = compiled.querySelector('button[type="submit"]');
-    expect(submitButton).toBeTruthy();
-    expect(submitButton!.textContent).toBe('Inscripció');
-  })
-
   it('should autocomplete the last letter of the DNI field when entered 8 numbers', () => {
     const inputDNI = getInputFromLabel(0)!;
     inputDNI.value = '12345678';
     inputDNI.dispatchEvent(new Event('input'));
     fixture.detectChanges();
     expect(inputDNI.value).toBe('12345678Z');
+  })
+
+});
+
+describe('button component', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [RegistreComponent]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(RegistreComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    compiled=fixture.nativeElement as HTMLElement;
+  });
+
+  it('should have a submit button', () => {
+    const submitButton = compiled.querySelector('button[type="submit"]');
+    expect(submitButton).toBeTruthy();
+    expect(submitButton!.textContent).toBe('Inscripció');
   })
 });
