@@ -50,7 +50,7 @@ describe('RegistreComponent', () => {
     expect(getNthLabelContent(2)?.textContent).toBe('Nom i cognoms: ');
     expect(getNthLabelContent(3)?.textContent).toBe('Telèfon: ');
     expect(getNthLabelContent(4)?.textContent).toBe('Email: ');
-  })
+  });
 
   it('should have input fields for DNI, Codi de federat, Nom i cognoms, Telèfon i Email', () => {
     const inputDNI:HTMLInputElement|null = getInputFromLabel(0);
@@ -72,11 +72,11 @@ describe('RegistreComponent', () => {
     inputDNI.dispatchEvent(new Event('input'));
     fixture.detectChanges();
     expect(inputDNI.value).toBe('12345678Z');
-  })
+  });
 
 });
 
-describe('InscripcioComponent', () => {
+describe('DadesIdentificativesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -92,7 +92,7 @@ describe('InscripcioComponent', () => {
 
   it('should have a title Inscripció inside the second section', () => {
     expect(getNthSectionContent(1).querySelector('h1')?.textContent).toBe('Inscripció');
-  })
+  });
   
   it('should have 5 checkboxes', () => {
     const checkboxes = compiled.querySelectorAll('input[type="checkbox"]');
@@ -105,7 +105,7 @@ describe('InscripcioComponent', () => {
     expect(getNthLabelContent(7)?.textContent).toBe('400m llisos ');
     expect(getNthLabelContent(8)?.textContent).toBe('800m llisos ');
     expect(getNthLabelContent(9)?.textContent).toBe('1000m llisos ');
-  })
+  });
 
   it('shouldn\'t let you select more than a value of 1200m from the checkboxes', () => {
     const secondSection = getNthSectionContent(1);
@@ -119,7 +119,11 @@ describe('InscripcioComponent', () => {
     expect(checkbox4.checked).toBeTrue();
 
     expect(checkbox2.disabled).toBeTrue();
-  });  
+  }); 
+  
+  it('should have the label Contrasenya', () => {
+    expect(getNthLabelContent(10)?.textContent).toBe('Contrasenya: ');
+  })
 
 })
 
@@ -141,11 +145,11 @@ describe('ButtonComponent', () => {
     const submitButton = compiled.querySelector('button[type="submit"]');
     expect(submitButton).toBeTruthy();
     expect(submitButton!.textContent).toBe('Inscripció');
-  })
+  });
 
   it('Button disabled by default', () => {
     const submitButton:HTMLButtonElement|null = compiled.querySelector('button');
     expect(submitButton?.disabled).toBeTruthy();
-  })
+  });
 
 });
