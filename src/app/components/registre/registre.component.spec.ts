@@ -61,6 +61,7 @@ describe('RegistreComponent', () => {
     const inputTelefon:HTMLInputElement|null = getInputFromLabel(3);
     const inputEmail:HTMLInputElement|null = getInputFromLabel(4);
     const inputContrasenya:HTMLInputElement|null = getInputFromLabel(5);
+    const inputConfirmContrasenya:HTMLInputElement|null = getInputFromLabel(6);
 
     expect(inputDNI!.getAttribute('type')).toBe('text');
     expect(inputCodiFederat!.getAttribute('type')).toBe('text');
@@ -68,6 +69,7 @@ describe('RegistreComponent', () => {
     expect(inputTelefon!.getAttribute('type')).toBe('tel');
     expect(inputEmail!.getAttribute('type')).toBe('email');
     expect(inputContrasenya!.getAttribute('type')).toBe('password');
+    expect(inputConfirmContrasenya!.getAttribute('type')).toBe('password');
   });
 
   it('should autocomplete the last letter of the DNI field when entered 8 numbers', () => {
