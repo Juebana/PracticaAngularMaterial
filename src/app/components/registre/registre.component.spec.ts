@@ -50,6 +50,7 @@ describe('RegistreComponent', () => {
     expect(getNthLabelContent(2)?.textContent).toBe('Nom i cognoms: ');
     expect(getNthLabelContent(3)?.textContent).toBe('Telèfon: ');
     expect(getNthLabelContent(4)?.textContent).toBe('Email: ');
+    expect(getNthLabelContent(5)?.textContent).toBe('Contrasenya: ');
   });
 
   it('should have input fields for DNI, Codi de federat, Nom i cognoms, Telèfon i Email', () => {
@@ -58,12 +59,14 @@ describe('RegistreComponent', () => {
     const inputNomCognoms:HTMLInputElement|null = getInputFromLabel(2);
     const inputTelefon:HTMLInputElement|null = getInputFromLabel(3);
     const inputEmail:HTMLInputElement|null = getInputFromLabel(4);
+    const inputContrasenya:HTMLInputElement|null = getInputFromLabel(5);
 
     expect(inputDNI!.getAttribute('type')).toBe('text');
     expect(inputCodiFederat!.getAttribute('type')).toBe('text');
     expect(inputNomCognoms!.getAttribute('type')).toBe('text');
     expect(inputTelefon!.getAttribute('type')).toBe('tel');
     expect(inputEmail!.getAttribute('type')).toBe('email');
+    expect(inputContrasenya!.getAttribute('type')).toBe('password');
   });
 
   it('should autocomplete the last letter of the DNI field when entered 8 numbers', () => {
@@ -76,7 +79,7 @@ describe('RegistreComponent', () => {
 
 });
 
-describe('DadesIdentificativesComponent', () => {
+describe('InscripcioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -119,11 +122,7 @@ describe('DadesIdentificativesComponent', () => {
     expect(checkbox4.checked).toBeTrue();
 
     expect(checkbox2.disabled).toBeTrue();
-  }); 
-  
-  it('should have the label Contrasenya', () => {
-    expect(getNthLabelContent(5)?.textContent).toBe('Contrasenya: ');
-  })
+  });
 
 })
 
