@@ -104,11 +104,11 @@ describe('InscripcioComponent', () => {
   });
 
   it('should have labels for the 5 checkboxes', () => {
-    expect(getNthLabelContent(6)?.textContent).toBe('100m llisos ');
-    expect(getNthLabelContent(7)?.textContent).toBe('200m llisos ');
-    expect(getNthLabelContent(8)?.textContent).toBe('400m llisos ');
-    expect(getNthLabelContent(9)?.textContent).toBe('800m llisos ');
-    expect(getNthLabelContent(10)?.textContent).toBe('1000m llisos ');
+    expect(getNthLabelContent(7)?.textContent).toBe('100m llisos ');
+    expect(getNthLabelContent(8)?.textContent).toBe('200m llisos ');
+    expect(getNthLabelContent(9)?.textContent).toBe('400m llisos ');
+    expect(getNthLabelContent(10)?.textContent).toBe('800m llisos ');
+    expect(getNthLabelContent(11)?.textContent).toBe('1000m llisos ');
   });
 
   it('shouldn\'t let you select more than a value of 1200m from the checkboxes', () => {
