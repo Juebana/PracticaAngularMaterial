@@ -51,6 +51,7 @@ describe('RegistreComponent', () => {
     expect(getNthLabelContent(3)?.textContent).toBe('Telèfon: ');
     expect(getNthLabelContent(4)?.textContent).toBe('Email: ');
     expect(getNthLabelContent(5)?.textContent).toBe('Contrasenya: ');
+    expect(getNthLabelContent(6)?.textContent).toBe('Confirmació de contrasenya: ');
   });
 
   it('should have input fields for DNI, Codi de federat, Nom i cognoms, Telèfon i Email', () => {
